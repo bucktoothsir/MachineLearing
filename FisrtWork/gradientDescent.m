@@ -22,14 +22,17 @@ for iter = 1:num_iters
     s1 = 0;
     
     for i = 1 : m 
-        s1 = s1 + ( theta(1) * X(i,1) + theta(2) * X(i,2) - y(i)  ) * X(i,2) / m;
-        s0 = s0 + ( theta(1) * X(i,1) + theta(2) * X(i,2) - y(i)  ) * X(i,1) / m ;
+        s0 = s0 + ( theta(1) * X(i,1) + theta(2) * X(i,2) - y(i)  ) * X(i,1);
+        s1 = s1 + ( theta(1) * X(i,1) + theta(2) * X(i,2) - y(i)  ) * X(i,2);
+        
     end
-    
-  temptheta0 = theta(1) - alpha * s0  ;
-  temptheta1 = theta(2) - alpha * s1;
+  a0 =  alpha / m * s0 ;
+  a1 =  alpha / m * s1
+  temptheta0 = theta(1) - a0;
+  temptheta1 = theta(2) - a1;
   theta(1) = temptheta0
   theta(2) = temptheta1
+  
   
    % ============================================================
 
